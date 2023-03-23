@@ -7,7 +7,7 @@ opt.background = "dark"
 opt.backup = false
 opt.swapfile = false
 opt.writebackup = false
-opt.scrolloff = 8
+opt.scrolloff = 6
 opt.sidescrolloff = 8
 opt.title = true
 opt.titlestring = "%<%F%=%l/%L"
