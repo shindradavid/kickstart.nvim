@@ -12,6 +12,9 @@ return {
     -- Unless you are still migrating, remove the deprecated commands from v1.x
     vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
+    vim.cmd([[ let g:loaded_netrw = 1 ]])
+    vim.cmd([[ let g:loaded_netrwPlugin = 1 ]])
+
     keymap.set("n", "<leader>fw", "<cmd>Neotree source=filesystem position=float<cr>", { desc = "Open files window" })
     keymap.set("n", "<leader>gs", "<cmd>Neotree source=git_status position=float<cr>", { desc = "View git status" })
 
