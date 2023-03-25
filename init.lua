@@ -324,6 +324,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- [[ Configure Telescope ]]
+
+local actions = require('telescope.actions')
+
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
@@ -331,6 +334,9 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ['<C-k>'] = actions.move_selection_previous,
+        ['<C-j>'] = actions.move_selection_next,
+        ['<C-c>'] = actions.close
       },
     },
   },
@@ -542,7 +548,10 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete {},
+    ['<C-Space>'] = cmp.mapping.complete {},    -- show completion suggestion
+    ['<C-k>'] = cmp.mapping.select_prev_item(), -- move to previous suggestion
+    ['<C-j>'] = cmp.mapping.select_next_item(), -- move to next suggestion
+    ['<C-c>'] = cmp.mapping.close(),            -- close completion menu
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
