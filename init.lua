@@ -130,9 +130,9 @@ require('lazy').setup({
 
   {
     -- Set lualine as statusline
+    -- See `:help lualine.txt`
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = true,
@@ -148,7 +148,8 @@ require('lazy').setup({
             'filename',
             file_status = true,    -- Displays file status (readonly status, modified status)
             newfile_status = true, -- Display new file status (new file means no write after created)
-            path = 1,              -- 0: Just the filename
+            path = 1,
+            -- 0: Just the filename
             -- 1: Relative path
             -- 2: Absolute path
             -- 3: Absolute path, with tilde as the home directory
@@ -215,9 +216,13 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
+  --  see :help comment-nvim
   { 'numToStr/Comment.nvim',         opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
+  -- health    ->    :checkhealth telescope
+  -- help      ->    :help telescope
+  -- cmd       ->    :Telescope
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -270,8 +275,13 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 
+vim.wo.relativenumber = true
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
+
+-- Cursor
+vim.o.cursorline = true
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -301,6 +311,12 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+vim.o.background = 'dark'
+
+vim.wrap = 'off'
+vim.o.scrolloff = 8
+vim.o.sidescroll = 8
 
 -- [[ Basic Keymaps ]]
 
