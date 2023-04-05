@@ -82,7 +82,7 @@ require('lazy').setup({
 		},
 	},
 	-- Useful plugin to show you pending keybinds.
-	{ 'folke/which-key.nvim',          opts = {} },
+	{ 'folke/which-key.nvim',  opts = {} },
 	{
 		-- Adds git releated signs to the gutter, as well as utilities for managing changes
 		'lewis6991/gitsigns.nvim',
@@ -117,12 +117,7 @@ require('lazy').setup({
 	},
 	-- "gc" to comment visual regions/lines
 	--  see :help comment-nvim
-	{ 'numToStr/Comment.nvim',         opts = {} },
-	-- Fuzzy Finder (files, lsp, etc)
-	-- health    ->    :checkhealth telescope
-	-- help      ->    :help telescope
-	-- cmd       ->    :Telescope
-	{ 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+	{ 'numToStr/Comment.nvim', opts = {} },
 	-- Fuzzy Finder Algorithm which requires local dependencies to be built.
 	-- Only load if `make` is available. Make sure you have the system
 	-- requirements installed.
@@ -133,16 +128,6 @@ require('lazy').setup({
 		build = 'make',
 		cond = function()
 			return vim.fn.executable 'make' == 1
-		end,
-	},
-	{
-		-- Highlight, edit, and navigate code
-		'nvim-treesitter/nvim-treesitter',
-		dependencies = {
-			'nvim-treesitter/nvim-treesitter-textobjects',
-		},
-		config = function()
-			pcall(require('nvim-treesitter.install').update { with_sync = true })
 		end,
 	},
 	{ import = 'shindradavid.plugins' },

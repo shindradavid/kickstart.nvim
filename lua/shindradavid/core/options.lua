@@ -5,6 +5,9 @@
 =====================================================================
 
 --]]
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- :help vim.o
 -- :help vim.opt
 local opt = vim.opt
@@ -31,14 +34,18 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.smartindent = true
 opt.expandtab = true
-opt.smartindent = true
 
 opt.wrap = false
 
+-- appearance
 opt.termguicolors = true
-
 opt.background = "dark"
+vim.wo.signcolumn = 'yes' -- keep signcolumn on by default
 
+-- backspace
+opt.backspace = 'indent,eol,start'
+
+-- search
 opt.hlsearch = false
 opt.smartcase = true
 opt.ignorecase = true -- case insensitive searching unless /C or capital in search
@@ -64,5 +71,3 @@ opt.titlestring = "%<%F%=%l/%L"
 opt.updatetime = 250
 opt.timeout = true
 opt.timeoutlen = 300
-
-vim.wo.signcolumn = 'yes' -- keep signcolumn on by default
