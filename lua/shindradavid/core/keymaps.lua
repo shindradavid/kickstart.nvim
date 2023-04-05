@@ -17,6 +17,12 @@ keymap.set('n', '<C-c>', '<cmd>%y+<CR>', { desc = 'Copy the whole file' })
 
 keymap.set('n', 'x', '"_x') -- delete without saving to register
 
+-- natural copy paste
+keymap.set('v', '<C-c>', '"+y', { silent = true })
+keymap.set('n', '<C-c>', '"+yy', { silent = true })
+keymap.set('v', '<C-v>', '"+p', { silent = true })
+keymap.set('i', '<C-v>', '<Esc>"+pa', { silent = true })
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -31,7 +37,10 @@ keymap.set("v", "k", ":m '<-2<CR>gv=gv")
 -- Diagnostic keymaps
 keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
--- keymap.set('n', 'C-/', require('Comment.api').toggle.linewise.current())
+-- commenting
+-- keymap.set('n', '<C-/>', 'gcc')
+
+-- keymap.set('n', '<C-/>', require('Comment.api').toggle.linewise.current())

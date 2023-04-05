@@ -16,7 +16,7 @@ return {
     vim.cmd([[ let g:loaded_netrw = 1 ]])
     vim.cmd([[ let g:loaded_netrwPlugin = 1 ]])
 
-    keymap.set("n", "<leader>ft", "<cmd>Neotree filesystem float toggle=true<cr>", { desc = "[F]ile tree" })
+    keymap.set("n", "<leader>e", "<cmd>Neotree filesystem float toggle=true<cr>", { desc = "Explorer" })
     keymap.set("n", "<leader>fg", "<cmd>Neotree git_status float toggle=true<cr>", { desc = "[F]ile git status" })
 
     require('neo-tree').setup {
