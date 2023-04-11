@@ -13,9 +13,10 @@ keymap.set('i', '<C-h>', '<Left>')
 keymap.set('i', '<C-l>', '<Right>')
 
 keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
+keymap.set('i', '<C-s>', '<ESC><cmd>w<CR>', { desc = 'Save file' })
+
 keymap.set('n', '<C-c>', '<cmd>%y+<CR>', { desc = 'Copy the whole file' })
 
-keymap.set('n', 'x', '"_x') -- delete without saving to register
 
 -- natural copy paste
 keymap.set('v', '<C-c>', '"+y', { silent = true })
@@ -28,9 +29,10 @@ keymap.set('i', '<C-v>', '<Esc>"+pa', { silent = true })
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap.set('n', 'K', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Move selected line / block of text in visual mode
 keymap.set("v", "j", ":m '>+1<CR>gv=gv")
 keymap.set("v", "k", ":m '<-2<CR>gv=gv")
 
@@ -40,7 +42,28 @@ keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic 
 keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
--- commenting
--- keymap.set('n', '<C-/>', 'gcc')
+-- Keep highlight when (de)indenting in visual mode
+keymap.set("v", "<", "<gv", { desc = "De indent" })
+keymap.set("v", ">", ">gv", { desc = "Indent" })
 
--- keymap.set('n', '<C-/>', require('Comment.api').toggle.linewise.current())
+-- toggle spellcheck
+keymap.set("n", "<F2>", "<cmd>set invspell<CR>", { desc = "Toggle spaces" })
+
+-- delete without saving to register
+keymap.set("n", "x", '"_x', { silent = true })
+keymap.set("n", "X", '"_X', { silent = true })
+keymap.set("v", "x", '"_x', { silent = true })
+keymap.set("v", "X", '"_X', { silent = true })
+
+-- Don't yank on visual paste
+keymap.set("v", "p", '"_dP', { silent = true })
+
+keymap.set('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = "Go to next buffer" })
+keymap.set('n', 'C-<TAB>', '<cmd>BufferLineCyclePrevious<CR>', { desc = "Go to previous buffer" })
+keymap.set('n', 'C-q', '<cmd>BufferLinePickClose<CR>')
+keymap.set('n', '1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = "Go to 1st buffer" })
+keymap.set('n', '2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = "Go to 2nd buffer" })
+keymap.set('n', '3', '<cmd>BufferLineGoToBuffer 3<CR>', { desc = "Go to 3rd buffer" })
+keymap.set('n', '4', '<cmd>BufferLineGoToBuffer 4<CR>', { desc = "Go to 4th buffer" })
+keymap.set('n', '5', '<cmd>BufferLineGoToBuffer 5<CR>', { desc = "Go to 5th buffer" })
+keymap.set('n', '6', '<cmd>BufferLineGoToBuffer 6<CR>', { desc = "Go to 6th buffer" })

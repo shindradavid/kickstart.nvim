@@ -18,6 +18,8 @@ opt.clipboard = 'unnamedplus'        -- sync clipboard btwn OS and neovim.  See 
 
 opt.signcolumn = 'yes'
 
+opt.dictionary = "/usr/share/dict/words" -- `pacman -S words`
+
 -- cursor
 opt.guicursor = ""
 opt.cursorline = true
