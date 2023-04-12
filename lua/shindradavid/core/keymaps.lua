@@ -4,6 +4,17 @@
 ============================= KEYMAPS ===============================
 =====================================================================
 
+SPECIAL KEYS
+<ESC>    - Escape
+<CR>     - Carriage return aka <enter>
+<TAB>    - Tab key
+<S-TAB>  - While holding <shift> press <tab>
+<M>      - Meta key aka <alt> or <option>
+<UP>     - Up arrow key
+<DOWN>   - Down arrow key
+<SPACE>  - Space bar
+<LEADER> - Leader, default to "/" but changed to " " <space>
+
 --]]
 local keymap = vim.keymap
 
@@ -54,12 +65,14 @@ keymap.set("n", "x", '"_x', { silent = true })
 keymap.set("n", "X", '"_X', { silent = true })
 keymap.set("v", "x", '"_x', { silent = true })
 keymap.set("v", "X", '"_X', { silent = true })
+keymap.set("n", "d", '"_d')
+keymap.set("v", "d", '"_d')
 
 -- Don't yank on visual paste
 keymap.set("v", "p", '"_dP', { silent = true })
 
 keymap.set('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = "Go to next buffer" })
-keymap.set('n', 'C-<TAB>', '<cmd>BufferLineCyclePrevious<CR>', { desc = "Go to previous buffer" })
+keymap.set('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<CR>', { desc = "Go to previous buffer" })
 keymap.set('n', 'C-q', '<cmd>BufferLinePickClose<CR>')
 keymap.set('n', '1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = "Go to 1st buffer" })
 keymap.set('n', '2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = "Go to 2nd buffer" })

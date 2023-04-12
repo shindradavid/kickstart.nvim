@@ -25,6 +25,8 @@ return {
       },
     }
 
+    local nmap = require('shindradavid.utils').nmap
+
     local keymap = vim.keymap
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
@@ -40,11 +42,11 @@ return {
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
 
-    keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
-    keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[F]ind [B]uffers' })
-    keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
-    keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
-    keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
-    keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
+    nmap('<leader>tff', require('telescope.builtin').find_files, '[T]elescope [F]ind [F]iles')
+    nmap('<leader>tfb', require('telescope.builtin').buffers, '[T]elescope [F]ind [B]uffers')
+    nmap('<leader>tfh', require('telescope.builtin').help_tags, '[T]elescope [F]ind [H]elp')
+    nmap('<leader>tfw', require('telescope.builtin').grep_string, '[T]elescope [F]ind current [W]ord')
+    nmap('<leader>tlg', require('telescope.builtin').live_grep, '[T]elescope [L]ive [G]rep')
+    nmap('<leader>tfd', require('telescope.builtin').diagnostics, '[T]elescope [F]ind [D]iagnostics')
   end
 }
