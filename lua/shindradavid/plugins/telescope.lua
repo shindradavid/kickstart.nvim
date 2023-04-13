@@ -47,6 +47,7 @@ return {
     nmap('<leader>tfh', require('telescope.builtin').help_tags, '[T]elescope [F]ind [H]elp')
     nmap('<leader>tfw', require('telescope.builtin').grep_string, '[T]elescope [F]ind current [W]ord')
     nmap('<leader>tlg', require('telescope.builtin').live_grep, '[T]elescope [L]ive [G]rep')
-    nmap('<leader>tfd', require('telescope.builtin').diagnostics, '[T]elescope [F]ind [D]iagnostics')
+    nmap('<leader>twd', require('telescope.builtin').diagnostics, '[T]elescope [W]orkspace [D]iagnostics')
+    nmap('<leader>tgs', require('telescope.builtin').git_status, '[T]elescope [G]it [S]tatus')
   end
 }

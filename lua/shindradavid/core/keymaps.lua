@@ -18,15 +18,20 @@ SPECIAL KEYS
 --]]
 local keymap = vim.keymap
 
+-- navigate within insert mode
 keymap.set('i', '<C-j>', '<Down>')
 keymap.set('i', '<C-k>', '<Up>')
 keymap.set('i', '<C-h>', '<Left>')
 keymap.set('i', '<C-l>', '<Right>')
 
-keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
-keymap.set('i', '<C-s>', '<ESC><cmd>w<CR>', { desc = 'Save file' })
+-- go to  beginning and end
+keymap.set('i', '<C-e>', '<END>', { desc = 'Go to the end of the line' })
+keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Go to the beginning of the line' })
 
-keymap.set('n', '<C-c>', '<cmd>%y+<CR>', { desc = 'Copy the whole file' })
+keymap.set('n', '<C-s>', '<cmd>wa<CR>', { desc = 'Save all files' })
+keymap.set('i', '<C-s>', '<ESC><cmd>wa<CR>', { desc = 'Save all files' })
+
+keymap.set('n', '<C-a>', '<cmd>%y+<CR>', { desc = 'Copy the whole file' })
 
 
 -- natural copy paste

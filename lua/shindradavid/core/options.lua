@@ -69,7 +69,12 @@ vim.o.sidescroll = 8
 opt.title = true
 opt.titlestring = "%<%F%=%l/%L"
 
--- Decrease update time
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+opt.whichwrap:append "<>[]hl"
+
+-- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
+
 opt.timeout = true
 opt.timeoutlen = 300
