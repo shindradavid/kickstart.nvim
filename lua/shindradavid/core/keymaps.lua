@@ -63,7 +63,7 @@ keymap.set("v", "<", "<gv", { desc = "De indent" })
 keymap.set("v", ">", ">gv", { desc = "Indent" })
 
 -- toggle spellcheck
-keymap.set("n", "<F2>", "<cmd>set invspell<CR>", { desc = "Toggle spaces" })
+keymap.set("n", "<F2>", "<cmd>set invspell<CR>", { desc = "Toggle spell check" })
 
 -- delete without saving to register
 keymap.set("n", "x", '"_x', { silent = true })

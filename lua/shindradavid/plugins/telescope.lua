@@ -42,6 +42,8 @@ return {
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
 
+    nmap('<C-f>', require('telescope.builtin').live_grep, 'Find')
+
     nmap('<leader>tff', require('telescope.builtin').find_files, '[T]elescope [F]ind [F]iles')
     nmap('<leader>tfb', require('telescope.builtin').buffers, '[T]elescope [F]ind [B]uffers')
     nmap('<leader>tfh', require('telescope.builtin').help_tags, '[T]elescope [F]ind [H]elp')
