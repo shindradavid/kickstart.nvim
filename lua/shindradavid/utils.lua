@@ -1,11 +1,15 @@
-local utils = {}
+local M = {}
 
-function utils.nmap(keys, func, desc)
+function M.nmap(keys, func, desc)
   vim.keymap.set('n', keys, func, { desc = desc })
 end
 
-function utils.vmap(keys, func, desc)
+function M.vmap(keys, func, desc)
   vim.keymap.set('v', keys, func, { desc = desc })
 end
 
-return utils
+function M.imap(keys, func, desc)
+  vim.keymap.set('i', keys, func, { desc = desc })
+end
+
+return M

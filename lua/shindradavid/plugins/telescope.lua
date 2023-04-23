@@ -19,17 +19,24 @@ return {
             ['<C-d>'] = false,
             ['<C-k>'] = actions.move_selection_previous,
             ['<C-j>'] = actions.move_selection_next,
-            ['<C-c>'] = actions.close
+            ['<C-c>'] = actions.close,
+            ['<C-h>'] = "which_key"
           },
         },
       },
     }
 
-    local nmap = require('shindradavid.utils').nmap
-
     local keymap = vim.keymap
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
+
+    local nmap = function(keys, func, desc)
+      if desc then
+        desc = 'Telescope: ' .. desc
+      end
+
+      vim.keymap.set('n', keys, func, { desc = desc })
+    end
 
     -- See `:help telescope.builtin`
     keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -44,12 +51,12 @@ return {
 
     nmap('<C-f>', require('telescope.builtin').live_grep, 'Find')
 
-    nmap('<leader>tff', require('telescope.builtin').find_files, '[T]elescope [F]ind [F]iles')
-    nmap('<leader>tfb', require('telescope.builtin').buffers, '[T]elescope [F]ind [B]uffers')
-    nmap('<leader>tfh', require('telescope.builtin').help_tags, '[T]elescope [F]ind [H]elp')
-    nmap('<leader>tfw', require('telescope.builtin').grep_string, '[T]elescope [F]ind current [W]ord')
-    nmap('<leader>tlg', require('telescope.builtin').live_grep, '[T]elescope [L]ive [G]rep')
-    nmap('<leader>twd', require('telescope.builtin').diagnostics, '[T]elescope [W]orkspace [D]iagnostics')
-    nmap('<leader>tgs', require('telescope.builtin').git_status, '[T]elescope [G]it [S]tatus')
+    nmap('<leader>ff', require('telescope.builtin').find_files, '[F]ind [F]iles')
+    nmap('<leader>fb', require('telescope.builtin').buffers, '[F]ind [B]uffers')
+    nmap('<leader>fh', require('telescope.builtin').help_tags, '[F]ind [H]elp')
+    nmap('<leader>fw', require('telescope.builtin').grep_string, '[F]ind current [W]ord')
+    nmap('<leader>lg', require('telescope.builtin').live_grep, '[L]ive [G]rep')
+    nmap('<leader>wd', require('telescope.builtin').diagnostics, '[W]orkspace [D]iagnostics')
+    nmap('<leader>gs', require('telescope.builtin').git_status, '[G]it [S]tatus')
   end
 }
