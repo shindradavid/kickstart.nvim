@@ -29,6 +29,9 @@ keymap.set('i', '<C-k>', '<Up>')
 keymap.set('i', '<C-h>', '<Left>')
 keymap.set('i', '<C-l>', '<Right>')
 
+-- undo and redo
+nmap('<C-z>', '<cmd>u<CR>', 'Undo')
+
 -- go to  beginning and end
 keymap.set('i', '<C-e>', '<END>', { desc = 'Go to the end of the line' })
 keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Go to the beginning of the line' })
@@ -82,7 +85,7 @@ keymap.set("v", "d", '"_d')
 -- Don't yank on visual paste
 keymap.set("v", "p", '"_dP', { silent = true })
 
-keymap.set('n', '<leader><TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = "Go to next buffer" })
+keymap.set('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = "Go to next buffer" })
 keymap.set('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<CR>', { desc = "Go to previous buffer" })
 keymap.set('n', 'C-q', '<cmd>BufferLinePickClose<CR>', { desc = "Pick buffer to close" })
 keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = "Go to 1st buffer" })

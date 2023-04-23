@@ -26,7 +26,6 @@ return {
       },
     }
 
-    local keymap = vim.keymap
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
 
@@ -39,24 +38,22 @@ return {
     end
 
     -- See `:help telescope.builtin`
-    keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-    keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-    keymap.set('n', '<leader>/', function()
+    nmap('<leader>?', require('telescope.builtin').oldfiles, '[?] Find recently opened files')
+    nmap('<leader><space>', require('telescope.builtin').buffers, '[ ] Find existing buffers')
+    nmap('<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
         previewer = false,
       })
-    end, { desc = '[/] Fuzzily search in current buffer' })
-
-    nmap('<C-f>', require('telescope.builtin').live_grep, 'Find')
+    end, '[/] Fuzzily search in current buffer')
 
     nmap('<leader>ff', require('telescope.builtin').find_files, '[F]ind [F]iles')
     nmap('<leader>fb', require('telescope.builtin').buffers, '[F]ind [B]uffers')
     nmap('<leader>fh', require('telescope.builtin').help_tags, '[F]ind [H]elp')
     nmap('<leader>fw', require('telescope.builtin').grep_string, '[F]ind current [W]ord')
-    nmap('<leader>lg', require('telescope.builtin').live_grep, '[L]ive [G]rep')
-    nmap('<leader>wd', require('telescope.builtin').diagnostics, '[W]orkspace [D]iagnostics')
+    nmap('<leader>fg', require('telescope.builtin').live_grep, '[F]ind with [G]rep')
+    nmap('<leader>fd', require('telescope.builtin').diagnostics, '[F]ind [D]iagnostics')
     nmap('<leader>gs', require('telescope.builtin').git_status, '[G]it [S]tatus')
   end
 }
