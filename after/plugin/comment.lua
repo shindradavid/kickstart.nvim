@@ -1,7 +1,7 @@
 local api = require('Comment.api')
 
-vim.keymap.set('n', '<leader>cl', api.toggle.linewise.current, { desc = 'Toggle comment for lime (linewise)' })
-vim.keymap.set('n', '<leader>cb', api.toggle.blockwise.current, { desc = 'Toggle comment for line (blockwise) ' })
+-- vim.keymap.set('n', '<leader>cl', api.toggle.linewise.current, { desc = 'Toggle comment for lime (linewise)' })
+-- vim.keymap.set('n', '<leader>cb', api.toggle.blockwise.current, { desc = 'Toggle comment for line (blockwise) ' })
 
 local esc = vim.api.nvim_replace_termcodes(
   '<ESC>', true, false, true

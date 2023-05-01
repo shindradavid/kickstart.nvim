@@ -13,7 +13,7 @@ return {
       },
       sections = {
         lualine_a = { { 'mode', icons_enabled = true } },
-        lualine_b = { { 'branch', icons_enabled = true } },
+        lualine_b = { { 'branch', icon = '󰘬', icons_enabled = true } },
         lualine_c = {
           {
             'filename',
@@ -33,6 +33,11 @@ return {
               unnamed = '[No Name]', -- Text to show for unnamed buffers.
               newfile = '[New]',     -- Text to show for newly created file before first write
             }
+          },
+          {
+            'searchcount',
+            maxcount = 999,
+            timeout = 500,
           },
           {
             'diagnostics',

@@ -38,8 +38,8 @@ return {
     end
 
     -- See `:help telescope.builtin`
-    nmap('<leader>?', require('telescope.builtin').oldfiles, '[?] Find recently opened files')
-    nmap('<leader><space>', require('telescope.builtin').buffers, '[ ] Find existing buffers')
+    -- nmap('<leader>?', require('telescope.builtin').oldfiles, '[?] Find recently opened files')
+    -- nmap('<leader><space>', require('telescope.builtin').buffers, '[ ] Find existing buffers')
     nmap('<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -48,12 +48,12 @@ return {
       })
     end, '[/] Fuzzily search in current buffer')
 
-    nmap('<leader>ff', require('telescope.builtin').find_files, '[F]ind [F]iles')
-    nmap('<leader>fb', require('telescope.builtin').buffers, '[F]ind [B]uffers')
-    nmap('<leader>fh', require('telescope.builtin').help_tags, '[F]ind [H]elp')
-    nmap('<leader>fw', require('telescope.builtin').grep_string, '[F]ind current [W]ord')
-    nmap('<leader>fg', require('telescope.builtin').live_grep, '[F]ind with [G]rep')
-    nmap('<leader>fd', require('telescope.builtin').diagnostics, '[F]ind [D]iagnostics')
-    nmap('<leader>gs', require('telescope.builtin').git_status, '[G]it [S]tatus')
+    -- nmap('<leader>ff', require('telescope.builtin').find_files, '[F]ind [F]iles')
+    -- nmap('<leader>fb', require('telescope.builtin').buffers, '[F]ind [B]uffers')
+    -- nmap('<leader>fh', require('telescope.builtin').help_tags, '[F]ind [H]elp')
+    -- nmap('<leader>fw', require('telescope.builtin').grep_string, '[F]ind current [W]ord')
+    -- nmap('<leader>fg', require('telescope.builtin').live_grep, '[F]ind with [G]rep')
+    -- nmap('<leader>fd', require('telescope.builtin').diagnostics, '[F]ind [D]iagnostics')
+    -- nmap('<leader>gs', require('telescope.builtin').git_status, '[G]it [S]tatus')
   end
 }

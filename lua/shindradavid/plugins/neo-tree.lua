@@ -20,6 +20,41 @@ return {
     -- keymap.set("n", "<leader>fg", "<cmd>Neotree git_status float toggle=true<cr>", { desc = "[F]ile git status" })
 
     require('neo-tree').setup {
+      enable_git_status = true,
+      enable_modified_markers = true,
+      enable_diagnostics = false,
+      sort_case_insensitive = true,
+      default_component_configs = {
+        indent = {
+          with_markers = false,
+          with_expanders = true,
+        },
+        modified = {
+          symbol = " ",
+          highlight = "NeoTreeModified",
+        },
+        icon = {
+          folder_closed = "",
+          folder_open = "",
+          folder_empty = "",
+          folder_empty_open = "",
+        },
+        git_status = {
+          symbols = {
+            -- Change type
+            added = "",
+            deleted = "",
+            modified = "",
+            renamed = "",
+            -- Status type
+            untracked = "",
+            ignored = "󰅚",
+            unstaged = "",
+            staged = "󰄴",
+            conflict = "",
+          },
+        },
+      },
       filesystem = {
         filtered_items = {
           visible = false,

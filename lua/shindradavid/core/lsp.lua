@@ -15,8 +15,8 @@ local on_attach = function(_, bufnr)
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-	nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+	nmap('<leader>vrn', vim.lsp.buf.rename, '[V]im [R]e[n]ame')
+	nmap('<leader>vca', vim.lsp.buf.code_action, '[V]im [C]ode [A]ction')
 
 	nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
 	nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -31,11 +31,11 @@ local on_attach = function(_, bufnr)
 
 	-- Lesser used LSP functionality
 	nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-	nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-	nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-	nmap('<leader>wl', function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, '[W]orkspace [L]ist Folders')
+	-- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+	-- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+	-- nmap('<leader>wl', function()
+	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, '[W]orkspace [L]ist Folders')
 
 	-- Create a command `:Format` local to the LSP buffer
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -84,7 +84,27 @@ require('mason').setup({
 			package_installed = "✓",
 			package_pending = "➜",
 			package_uninstalled = "✗"
-		}
+		},
+		keymaps = {
+			-- Keymap to expand a package
+			toggle_package_expand = "<CR>",
+			-- Keymap to install the package under the current cursor position
+			install_package = "i",
+			-- Keymap to reinstall/update the package under the current cursor position
+			update_package = "u",
+			-- Keymap to check for new version for the package under the current cursor position
+			check_package_version = "c",
+			-- Keymap to update all installed packages
+			update_all_packages = "U",
+			-- Keymap to check which installed packages are outdated
+			check_outdated_packages = "C",
+			-- Keymap to uninstall a package
+			uninstall_package = "X",
+			-- Keymap to cancel a package installation
+			cancel_installation = "<C-c>",
+			-- Keymap to apply language filter
+			apply_language_filter = "<C-f>",
+		},
 	}
 })
 

@@ -1,15 +1,16 @@
 --[[
 
-=====================================================================
-================== PERSONAL FORK OF KICKSTART.NVIM ==================
-=====================================================================
+=======================================================================
+================== PERSONAL FORK OF KICKSTART.NVIM ====================
+=======================================================================
 
 ----- PRE-REQUISITES
 -- install a nerd font -> `https://www.nerdfonts.com`
 -- install ripgrep for telescope fuzzy finder `sudo pacman -S ripgrep`
--- uninstall previous config -> `rm -rf ~/.config/nvim`
--- remove previous config data -> `rm -rf ~/.local/share/nvim`
+-- uninstall previous config if any -> `rm -rf ~/.config/nvim`
+-- remove previous config data if any -> `rm -rf ~/.local/share/nvim`
 
+-- See `:help rtp` or `:help runtimepath` for folder structure guidance
 --]]
 require('shindradavid.core.options')
 require('shindradavid.core.lazy')

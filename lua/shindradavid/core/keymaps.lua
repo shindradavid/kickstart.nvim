@@ -4,6 +4,8 @@
 ============================= KEYMAPS ===============================
 =====================================================================
 
+-- See `:help vim.keymap.set()`
+
 SPECIAL KEYS
 <ESC>    - Escape
 <CR>     - Carriage return aka <enter>
@@ -23,6 +25,12 @@ local keymap = vim.keymap
 local nmap = require('shindradavid.utils').nmap
 local vmap = require('shindradavid.utils').vmap
 
+keymap.set('n', '<leader>ln', '<cmd>set rnu!<CR>', { desc = 'Toggle relative line numbers' })
+
+-- Keymaps for better default experience
+keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+keymap.set('n', 'Q', '<NOP>')
+
 -- navigate within insert mode
 keymap.set('i', '<C-j>', '<Down>')
 keymap.set('i', '<C-k>', '<Up>')
@@ -36,12 +44,11 @@ nmap('<C-z>', '<cmd>u<CR>', 'Undo')
 keymap.set('i', '<C-e>', '<END>', { desc = 'Go to the end of the line' })
 keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Go to the beginning of the line' })
 
-keymap.set('n', '<C-s>', '<cmd>wa<CR>', { desc = 'Save all files' })
-keymap.set('i', '<C-s>', '<ESC><cmd>wa<CR>', { desc = 'Save all files' })
+keymap.set('n', '<leader>wa', '<cmd>wa<CR>', { desc = 'Write all files' })
+keymap.set('n', '<leader>wc', '<ESC><cmd>wa<CR>', { desc = 'Write current file' })
 
 keymap.set('n', '<C-a>', '<cmd>%y+<CR>', { desc = 'Copy the whole file' })
 
-keymap.set('n', '<C-x>', '<cmd>bd<CR>', { desc = 'Close current buffer' })
 
 -- natural copy paste
 keymap.set('v', '<C-c>', '"+y', { silent = true })
@@ -49,17 +56,13 @@ keymap.set('n', '<C-c>', '"+yy', { silent = true })
 keymap.set('v', '<C-v>', '"+p', { silent = true })
 keymap.set('i', '<C-v>', '<Esc>"+pa', { silent = true })
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
 -- Remap for dealing with word wrap
 keymap.set('n', 'K', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Move selected line / block of text in visual mode
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- Diagnostic keymaps
 keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
@@ -68,11 +71,11 @@ keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = "Open floating
 keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Keep highlight when (de)indenting in visual mode
-keymap.set("v", "<", "<gv", { desc = "De indent" })
-keymap.set("v", ">", ">gv", { desc = "Indent" })
+keymap.set('v', '<', '<gv', { desc = 'De indent' })
+keymap.set('v', '>', '>gv', { desc = 'Indent' })
 
 -- toggle spellcheck
-keymap.set("n", "<F2>", "<cmd>set invspell<CR>", { desc = "Toggle spell check" })
+keymap.set('n', '<F2>', '<cmd>set invspell<CR>', { desc = 'Toggle spell check' })
 
 -- delete without saving to register
 keymap.set("n", "x", '"_x', { silent = true })
@@ -85,12 +88,15 @@ keymap.set("v", "d", '"_d')
 -- Don't yank on visual paste
 keymap.set("v", "p", '"_dP', { silent = true })
 
-keymap.set('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = "Go to next buffer" })
-keymap.set('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<CR>', { desc = "Go to previous buffer" })
-keymap.set('n', 'C-q', '<cmd>BufferLinePickClose<CR>', { desc = "Pick buffer to close" })
-keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = "Go to 1st buffer" })
-keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = "Go to 2nd buffer" })
-keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', { desc = "Go to 3rd buffer" })
-keymap.set('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>', { desc = "Go to 4th buffer" })
-keymap.set('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>', { desc = "Go to 5th buffer" })
-keymap.set('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>', { desc = "Go to 6th buffer" })
+-- TODO: remove these
+-- keymap.set('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Go to next buffer' })
+-- keymap.set('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Go to previous buffer' })
+-- keymap.set('n', '<leader>bc', '<cmd>bd<CR>', { desc = 'Close current buffer' })
+-- keymap.set('n', '<leader>bp', '<cmd>BufferLinePickClose<CR>', { desc = 'Pick buffer to close' })
+-- keymap.set('n', '<leader>bf', '<cmd>Format<CR>', { desc = 'Format buffer with lsp' })
+-- keymap.set('n', '<leader>b1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = 'Go to 1st buffer' })
+-- keymap.set('n', '<leader>b2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = 'Go to 2nd buffer' })
+-- keymap.set('n', '<leader>b3', '<cmd>BufferLineGoToBuffer 3<CR>', { desc = 'Go to 3rd buffer' })
+-- keymap.set('n', '<leader>b4', '<cmd>BufferLineGoToBuffer 4<CR>', { desc = 'Go to 4th buffer' })
+-- keymap.set('n', '<leader>b5', '<cmd>BufferLineGoToBuffer 5<CR>', { desc = 'Go to 5th buffer' })
+-- keymap.set('n', '<leader>b6', '<cmd>BufferLineGoToBuffer 6<CR>', { desc = 'Go to 6th buffer' })

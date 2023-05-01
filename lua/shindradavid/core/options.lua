@@ -52,6 +52,7 @@ opt.hlsearch = false
 opt.smartcase = true
 opt.ignorecase = true -- case insensitive searching unless /C or capital in search
 opt.smartcase = true
+opt.incsearch = true
 
 -- backup and undo
 opt.backup = false
