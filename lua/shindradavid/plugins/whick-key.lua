@@ -69,7 +69,8 @@ return {
       [";"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal" },
       b = {
         name = "Buffers",
-        c = { "<cmd>bd<cr>", "Close Current" },
+        c = { "<cmd>bd<cr>", "Close current" },
+        w = { "<cmd>w<cr>", "Write current" },
         p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
         n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
         f = { "<cmd>Format<cr>", "Format current" },
