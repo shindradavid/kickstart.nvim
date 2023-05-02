@@ -87,16 +87,3 @@ keymap.set("v", "d", '"_d')
 
 -- Don't yank on visual paste
 keymap.set("v", "p", '"_dP', { silent = true })
-
--- TODO: remove these
--- keymap.set('n', '<TAB>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Go to next buffer' })
--- keymap.set('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Go to previous buffer' })
--- keymap.set('n', '<leader>bc', '<cmd>bd<CR>', { desc = 'Close current buffer' })
--- keymap.set('n', '<leader>bp', '<cmd>BufferLinePickClose<CR>', { desc = 'Pick buffer to close' })
--- keymap.set('n', '<leader>bf', '<cmd>Format<CR>', { desc = 'Format buffer with lsp' })
--- keymap.set('n', '<leader>b1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = 'Go to 1st buffer' })
--- keymap.set('n', '<leader>b2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = 'Go to 2nd buffer' })
--- keymap.set('n', '<leader>b3', '<cmd>BufferLineGoToBuffer 3<CR>', { desc = 'Go to 3rd buffer' })
--- keymap.set('n', '<leader>b4', '<cmd>BufferLineGoToBuffer 4<CR>', { desc = 'Go to 4th buffer' })
--- keymap.set('n', '<leader>b5', '<cmd>BufferLineGoToBuffer 5<CR>', { desc = 'Go to 5th buffer' })
--- keymap.set('n', '<leader>b6', '<cmd>BufferLineGoToBuffer 6<CR>', { desc = 'Go to 6th buffer' })

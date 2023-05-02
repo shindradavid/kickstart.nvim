@@ -66,44 +66,48 @@ return {
     }
 
     local mappings = {
-      [";"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal" },
-      b = {
-        name = "Buffers",
-        c = { "<cmd>bd<cr>", "Close current" },
-        w = { "<cmd>w<cr>", "Write current" },
-        p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
-        n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
-        f = { "<cmd>Format<cr>", "Format current" },
-        ["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "First" },
-        ["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Second" },
-        ["3"] = { "<cmd>BufferLineGoToBuffer 3<cr>", "Third" },
-        ["4"] = { "<cmd>BufferLineGoToBuffer 4<cr>", "Fourth" },
-        ["5"] = { "<cmd>BufferLineGoToBuffer 5<cr>", "Fifth" },
-        ["6"] = { "<cmd>BufferLineGoToBuffer 6<cr>", "Sixth" },
-      },
-      c = {
-        name = "Comment",
-        l = { "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", "linewise" },
-        b = { "<cmd>lua require('Comment.api').toggle.blockwise.current()<cr>", "blockwise" },
-      },
-      f = {
-        name = "Find",
-        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-        f = { "<cmd>Telescope find_files<cr>", "Files" },
-        r = { "<cmd>Telescope registers<cr>", "Registers" },
-        t = { "<cmd>Telescope live_grep<cr>", "Text" },
-        w = { "<cmd>Telescope grep_string<cr>", "Word" },
-        d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-        h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
-      },
-      w = {
-        name = "Write",
-        c = { "<cmd>w<cr>", "Current buffer" },
-        a = { "<cmd>wa<cr>", "All buffers" }
+      ["<tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Go to next buffer" },
+      ["<s-tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Go to previous buffer" },
+      ["<leader>"] = {
+        [";"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal" },
+        b = {
+          name = "Buffers",
+          c = { "<cmd>bd<cr>", "Close current" },
+          w = { "<cmd>w<cr>", "Write current" },
+          p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+          n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+          f = { "<cmd>Format<cr>", "Format current" },
+          ["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "First" },
+          ["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Second" },
+          ["3"] = { "<cmd>BufferLineGoToBuffer 3<cr>", "Third" },
+          ["4"] = { "<cmd>BufferLineGoToBuffer 4<cr>", "Fourth" },
+          ["5"] = { "<cmd>BufferLineGoToBuffer 5<cr>", "Fifth" },
+          ["6"] = { "<cmd>BufferLineGoToBuffer 6<cr>", "Sixth" },
+        },
+        c = {
+          name = "Comment",
+          l = { "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", "linewise" },
+          b = { "<cmd>lua require('Comment.api').toggle.blockwise.current()<cr>", "blockwise" },
+        },
+        f = {
+          name = "Find",
+          b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+          f = { "<cmd>Telescope find_files<cr>", "Files" },
+          r = { "<cmd>Telescope registers<cr>", "Registers" },
+          t = { "<cmd>Telescope live_grep<cr>", "Text" },
+          w = { "<cmd>Telescope grep_string<cr>", "Word" },
+          d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+          h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
+        },
+        w = {
+          name = "Write",
+          c = { "<cmd>w<cr>", "Current buffer" },
+          a = { "<cmd>wa<cr>", "All buffers" }
+        }
       }
     }
 
     which_key.setup(opts)
-    which_key.register(mappings, { prefix = '<leader>' })
+    which_key.register(mappings)
   end
 }
